@@ -9,7 +9,6 @@ export default function renderMain({
   selectedStory,
   showMain,
   showError,
-  forceRender,
 }) {
   const component = story();
 
@@ -17,10 +16,6 @@ export default function renderMain({
   if (typeof component === 'string') {
     rootElement.innerHTML = component;
   } else if (component instanceof Node) {
-    if (forceRender === true) {
-      return;
-    }
-
     rootElement.innerHTML = '';
     rootElement.appendChild(component);
   } else {
